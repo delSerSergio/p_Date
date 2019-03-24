@@ -1,18 +1,49 @@
 package es.unileon.prg.date;
-
+/*
+ * Clase que representa una fecha.
+ *
+ * @author Sergio del Ser
+ * @Version 4.0
+ */
 public class Date {
-
+	/*
+	 * Día de la fecha.
+	 */
 	private int day;
+
+	/*
+	 * Mes de la fecha.
+	 */
 	private int month;
+
+	/*
+	 * Año de la fecha.
+	 */
 	private int year;
 
+	/*
+	 * Constructor de la clase. Crea una fecha con el día, mes y año.
+	 */
 	public Date()
 	{
 		this.day=day;
 		this.month=month;
 		this.year=year;
 	}
-
+	
+	/*
+	 * Constructor de la clase. Crea una fecha con las dimensiones introducidad. Con las 		 * excepciones de los días y meses.
+	 *
+	 * @param day
+	 *	Día de la fecha.
+	 *
+	 * @param month
+	 *	Mes de la fecha.
+	 *
+	 * @param year
+	 *	Año de la fecha.
+	 *
+	 */
 	public Date(int day, int month, int year) throws DateException
 	{
 		if(this.day<=0)
@@ -40,6 +71,12 @@ public class Date {
 		}
 	}
 
+	/*
+	 *Se clasifican los meses del año según el número de días que tiene.
+	 *
+	 *@param month
+	 *
+	 */
 	public int daysOfMonth(int month)
 	{
 		int numDias=0;
@@ -71,97 +108,178 @@ public class Date {
 		return numDias;
 	}
 
+	//Devuelve el dia de la fecha introducida.
 	public int getDay()
 	{
 		return this.day;
 	}
 
+	/*
+	 * Modifica el día de la fecha.
+	 *
+	 * @param newDay
+	 *	Día de la nueva fecha.
+	 *
+	 */
 	public void setDay(int newDay)
 	{
 		day=newDay;
 	}
 
+	//Devuelve el mes de la fecha introducida.
 	public int getMonth()
 	{
 		return this.month;
 	}
 
+	/*
+	 * Modifica el mes de la fecha.
+	 *
+	 * @param newMonth
+	 *	Mes de la nueva fecha.
+	 *
+	 */
 	public void setMonth(int newMonth)
 	{
 		month=newMonth;
 	}
 
+	//Devuelve el año de la fecha introducida.
 	public int getYear()
 	{
 		return this.year;
 	}
 
+	/*
+	 * Modifica el año de la fecha.
+	 *
+	 * @param newYear
+	 *	Año de la nueva fecha.
+	 *
+	 */
 	public void setYear(int newYear)
 	{
 		year=newYear;
 	}
 
-	boolean isSameDay(Date another)
+	/*
+	 * Compara el día de las dos fechas, en este caso es el método sin IF.
+	 *
+	 * @param Date other
+	 *	Día de la fecha con la cual se compara.
+	 *
+	 */
+	boolean isSameDay(Date other)
 	{
-		this.day=another.getDay();
+		this.day=other.getDay();
 		return true;
 	}
 
-	boolean ifIsSameDay(Date another)
+	/*
+	 * Compara el día de las dos fechas, esta vez empleando IF.
+	 *
+	 * @param Date other
+	 *	Día de la fecha con la cual se compara.
+	 *
+	 */
+	boolean ifIsSameDay(Date other)
 	{
-		if(this.day==another.getDay())
+		if(this.day==other.getDay())
 		{
 			return true;
 		}
 		return false;
 	}
 
-	boolean isSameMonth(Date another)
+	/*
+	 *Compara el mes de las dos fechas, en este caso es el método sin IF.
+	 *
+	 * @param Date other
+	 *	Mes de la fecha con la cual se compara.
+	 *
+	 */
+	boolean isSameMonth(Date other)
 	{
-		this.month=another.getMonth();
+		this.month=other.getMonth();
 		return true;
 	}
 
-	boolean ifIsSameMonth(Date another)
+	/*
+	 * Compara el mes de las dos fechas, esta vez empleando IF.
+	 *
+	 * @param Date other
+	 *	Mes de la fecha con la cual se compara.
+	 *
+	 */	
+	boolean ifIsSameMonth(Date other)
 	{
-		if(this.month==another.getMonth())
+		if(this.month==other.getMonth())
 		{
 			return true;
 		}
 		return false;
 	}
 
-	boolean isSameYear(Date another)
+	/*
+	 * Compara el año de las dos fechas, en este caso es el método sin IF.
+	 *
+	 * @param Date other
+	 *	Año de la fecha con la cual se compara.
+	 *
+	 */
+	boolean isSameYear(Date other)
 	{
-		this.year=another.getYear();
+		this.year=other.getYear();
 		return true;
 	}
 
-	boolean ifIsSameYear(Date another)
+	/*
+	 * Compara el año de las dos fechas, esta vez empleando IF.
+	 *
+	 * @param Date other
+	 *	Año de la fecha con la cual se compara.
+	 *
+	 */
+	boolean ifIsSameYear(Date other)
 	{
-		if(this.year==another.getYear())
+		if(this.year==other.getYear())
 		{
 			return true;
 		}
 		return false;
 	}
 
-	boolean isSame(Date another)
+	/*
+	 * Compara las fechas completas, utilizando los tres parametros. En este caso es el método sin IF.
+	 *
+	 * @param Date other
+	 *	Fecha completa con la cual se va a comparar.
+	 *
+	 */
+	boolean isSame(Date other)
 	{
-		this.day=another.getDay();
-		this.month=another.getMonth();
-		this.year=another.getYear();
+		this.day=other.getDay();
+		this.month=other.getMonth();
+		this.year=other.getYear();
 		return true;
 	}
 
-	boolean ifIsSame(Date another)	
-	{	if((this.day==another.getDay())&&(this.month==another.getMonth())&&(this.year==another.getYear()))
+	/*
+	 *Compara las fechas completas, utilizando los tres parametros. Esta vez utilizando IF.
+	 *
+	 * @param Date other
+	 *	Fecha completa con la cual se va a comparar.
+	 *
+	 */
+	boolean ifIsSame(Date other)	
+	{	if((this.day==other.getDay())&&(this.month==other.getMonth())&&(this.year==other.getYear()))
 		{
 			return true;
 		}
 		return false;
 	}
 
+	//Devuelve el nombre del mes.
 	public String monthName()
 	{
 		String month=null;
@@ -231,11 +349,18 @@ public class Date {
 		return month;
 	}
 
+	/*
+	 *Comprueba si el día y el mes son correctos.
+	 *
+	 * @param
+	 *	Día de la fecha.
+	 */
 	public boolean isDayRight(int day)
 	{
 		return (this.day>0)&&(day<=this.daysOfMonth(this.month));
 	}
 
+	//Devuelve la estación a la que pertenece la fecha introducida.
 	public String seasonMonths()
 	{
 		String season=null;
@@ -269,6 +394,7 @@ public class Date {
 		return season;
 	}
 
+	//Duvuelve los meses que faltan desde la fecha introducida hasta final de año.
 	public String monthsLeft()
 	{
 		int i;
@@ -280,12 +406,14 @@ public class Date {
 		
 		return monthsLeft.toString();
 	}
-
+	
+	//Devuelve la fecha introducida.
 	public int date()
 	{
 		return this.day+this.month+this.year;
 	}
 
+	//Devuelve las fechas restantes del año.
 	public String dateLeft() throws DateException
 	{
 		int i;
@@ -318,6 +446,7 @@ public class Date {
 		return salida.toString();
 	}
 
+	//Devuelve los meses que tienen los mismos días que el mes de la fecha introducida.
 	public String monthsSameDays()
 	{
 		switch(this.month)
@@ -339,8 +468,9 @@ public class Date {
 				System.out.println("Los meses con los mismos dias al mes introducido son: Abril, junio, septiembre y noviembre.");
 			break;
 		}
-	}}
+	}
 
+	//Calcula los días que has transcurrido desde el inicio del año hasta el día anterior al actual.
 	public int daysSinceJan()
 	{
 		int count=0, i;
@@ -364,6 +494,7 @@ public class Date {
 		return count-1;
 	}
 
+	//Calcula el número de intentos aleatorios que requiere el método para acertar con la fecha introducida utilizando un bucle Do-While.
 	public int attempsDoWhile() throws DateException
 	{
 		int attemps=0, aDay, aMonth, aYear;
@@ -377,6 +508,7 @@ public class Date {
 		return attemps;
 	}
 
+	//Calcula el número de intentos aleatorios que requiere el método para acertar con la fecha introducida utilizando un bucle While.
 	public int attempsWhile()
 	{
 		int aDay, aMonth, aYear,attemps=0;
@@ -397,6 +529,7 @@ public class Date {
 		return attemps;
 	}
 
+	//Devuelve el día de la semana que es la fecha introducida.
 	public String daysWeek()
 	{
 		String day=null;
@@ -431,5 +564,14 @@ public class Date {
 			break;
 		}
 		return day;
+	}
+
+	//Utilizamos "@Override" para forzar al compilador a sobreescribir correctamente un método para evitar errores en tiempo de ejecución.
+	@Override
+
+	//Devuelve la fecha introducida.
+	public String toString()
+	{
+		return this.day+"/"+this.month+"/"+this.year;
 	}
 }
